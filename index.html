@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SAP Inside Track Walldorf - UI5 Custom Controls</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/theme/custom.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+<!--F for fullscreen-->
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section >
+					<h1>UI5 Custom Controls</h1>
+					<p>
+						<small>Created by Wouter Lemaire</small>
+					</p>
+				</section>
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li>Introduction</li>
+						<li>Questions</li>
+						<li>About UI5</li>
+						<li>Custom Controls</li>
+						<li>Suprise</li>
+						<li>QA</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Introductie</h2>
+						<p>Wouter Lemaire</p>
+						<p>Brussels</p>
+						<p>SAP Developer Consultant</p>
+						<p>ABAP - SAP Gateway - UI5 - Fiori</p>
+					</section>
+					<section>
+						<img src="images/flexso.png"/>
+						<p>Belgium</p>
+						<p>SAP Consulting Company</p>
+						<p>SAP Support Team</p>
+						<p>SAP Partner</p>
+					</section>
+					<section data-background="images/google.png">
+					</section>
+					<section >
+						<h2>Inspiration</h2>
+						<p>Non-Fiori look-and-feel webapp</p>
+						<p>Discussion JS frameworks</p>
+						<div class="row">
+							<div class="col-lg-5 col-md-5" ><img src="images/sapui5.png" width="100%"/></div>
+							<div class="col-lg-2 col-md-2"></div>
+							<div class="col-lg-5 col-md-5" ><img src="images/frameworks.png" width="100%"/></div>
+						</div>
+					</section>
+					<section>
+						<h2>Source</h2>
+						<p>UI5con</p>
+						<img src="images/ui5controls.jpg"/>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Journey through UI5 space</h2>
+						<p>Starting with a few questions</p>
+					</section>
+					<section>
+						<h2>Who has already seen Fiori?</h2>
+						<img class="fragment" src="images/sapfiori.png"/>
+					</section>
+					<section>
+						<h2>Who has created at least one Fiori app?</h2>
+						<p class="fragment">You'll find it an interesting sessions</p>
+					</section>
+					<section>
+						<h2>Who has created or extended a UI5 control?</h2>
+						<p class="fragment">I have something for you</p>
+					</section>
+					<section>
+						<h2>Are there Star Wars fans in the room?</h2>
+						<p class="fragment">You'll like my UI5 Control :)</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>UI5</h2>
+						<ul>
+							<li><p>Javascript framework</p></li>
+							<li>Adaptive
+								<ul>
+									<li>Browsers</li>
+									<li>Devices</li>
+									<li>Screen sizes</li>
+								</ul>
+							</li>
+							<li><p>Out-of-the-box controls</p></li>
+							<li><p><a href="https://sapui5.netweaver.ondemand.com/explored.html">Controls</a></p></li>
+						</ul>
+					</section>
+					<section>
+						<h2>UI5</h2>
+						<ul>
+							<li><p>The core of Fiori</p></li>
+							<li><p>Controls are designed for Fiori</p></li>
+						</ul>
+						<img src="images/sapfiori.png"/>
+					</section>
+					<section>
+						<h2>UI5</h2>
+						<ul>
+							<li><p>Create non-Fiori websites</p></li>
+							<li><p>Create your own controls</p></li>
+							<li><p>Freedom is endless with UI5</p></li>
+						</ul>
+					</section>
+					<section>
+						<h2>SAP Sports One Demo</h2>
+						<iframe height="700px" width="100%" 
+							src="https://youtube.com/embed/D8sUqoM2SD8?autoplay=0&controls=0&showinfo=0&autohide=1">
+						</iframe>
+						
+					</section>
+				</section>
+				<section>
+					<h2>Custom UI5 Controls</h2>
+					<ul>
+						<li><p class="fragment">Extending existing controls</p></li>
+						<li><p class="fragment">Create brand new controls</p></li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Extend existing ui5 control</h2>
+						<ul><li><p>Fiori controls</p></li>
+						<li><p>Start from existing control</p></li>
+						<li><p>Existing UI5 controls: <a href="https://sapui5.netweaver.ondemand.com/explored.html">Explored app</a></p></li>
+						</ul>
+						<!--p>Example https://help.sap.com/saphelp_uiaddon10/helpdata/en/bc/ee26a4801748f39bf5698d83d903aa/content.htm</p-->
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Extending TextField Rendering</h2>
+						
+						```
+							sap.ui.commons.TextField.extend("HighlightField", { // call the new Control type "HighlightField" 
+                                                      // and let it inherit from sap.ui.commons.TextField
+								renderer: {}
+								// note that NO render() function is given here! The TextField's render() function is used. 
+								
+								// But one function is overwritten:
+								renderInnerAttributes : function(oRm, oTextField) {
+									oRm.addStyle('background-color', '#ffff00');  // this change could also be done with plain CSS!! 
+								                                            // But you get the idea...
+								}
+							});
+						```
+						</script>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Create a custom control</h2>
+						<ul>
+						<li><p>Create brand new controls</p></li>
+						<li><p>Also Extending!</p></li>
+						<li>Steps</li>
+						<ol>
+						<li><p>Create properties for dynamic values</p></li>
+						<li><p>Convert HTML in a JS function</p></li>
+						<li><p>Handle control events</p></li>
+						</ol>
+						</ul>
+					</section>
+					<section>
+						<h2>Extend from Control</h2>
+						<p><img src="images/controls.png" height="500px"/></p>
+					</section>
+					
+					<section data-markdown>
+						
+						<script type="text/template">
+						<h2>HTML template</h2>
+						
+						```
+							<div class="sw-intro">
+								<p class="intro-text">
+									SAP Inside Track Walldorf
+								</p>
+								<h2 class="main-logo">
+									<img src="images/logo.png">
+								</h2>
+								<div class="main-content">
+									<div class="title-content">
+										<p class="content-header">UI5 Custom Controls</p>
+										<br>
+										<p class="content-body">
+											Everything you need to know about UI5 Custom Controls!
+										</p>
+									</div>
+								</div>
+							</div>
+						```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Extend starting from Control</h2>
+
+						```
+							sap.ui.define(["sap/ui/core/Control"], function(Control) {
+								"use strict";
+								return Control.extend("de.wdf.Control.CustomControlDemo", {
+									
+								});
+							});
+						```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Implement the basics</h2>
+
+						```
+							sap.ui.define(["sap/ui/core/Control"], function(Control) {
+								"use strict";
+								return Control.extend("de.wdf.Control.CustomControlDemo", {
+									"metadata": {
+										"properties": {
+										},
+										"events": {}
+									},
+									init: function() {},
+									renderer: function(oRm, oControl) {},
+										onAfterRendering: function(evt) {}
+								});
+							});
+						```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Extend Metadata</h2>
+						<p>For each generic variable</p>
+
+						```
+							sap.ui.define(["sap/ui/core/Control"], function(Control) {
+								"use strict";
+								return Control.extend("de.wdf.Control.CustomControlDemo", {
+									"metadata": {
+										"properties": {
+											"intro": "string",
+											"title": "string",
+											"text": "string",
+											"logo": "string"
+										},
+										"events": {}
+									},
+									init: function() {},
+									renderer: function(oRm, oControl) {},
+										onAfterRendering: function(evt) {}
+								});
+							});
+						```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Setters</h2>
+						<p>Changing the properties from your controller will NOT trigger a rerendering --> Smoother!</p>
+
+						```
+							sap.ui.define(["sap/ui/core/Control"], function(Control) {
+								"use strict";
+								return Control.extend("de.wdf.Control.CustomControlDemo", {
+									"metadata": {
+										"properties": {
+											"intro": "string",
+											"title": "string",
+											"text": "string",
+											"logo": "string"
+										},
+										"events": {}
+									},
+									init: function() {},
+									renderer: function(oRm, oControl) {
+									},
+									onAfterRendering: function(evt) {},
+									setIntro: function(value) {
+										this.setProperty("intro", value, true);
+										return this;
+									},
+									setTitle: function(value) {
+										this.setProperty("title", value, true);
+										return this;
+									},
+									setText: function(value) {
+										this.setProperty("text", value, true);
+										return this;
+									},
+									setLogo: function(value) {
+										this.setProperty("logo", value, true);
+										return this;
+									}
+								});
+							});
+						```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Renderer function</h2>
+						<p>writeControlData --> generate id and data-sap-ui</p>
+						
+						```
+							renderer: function(oRm, oControl) {
+								oRm.write("<div");
+								oRm.writeControlData(oControl);
+								oRm.write(">");
+								oRm.write("</div>");
+							},
+						```
+						
+						<img data-src="images/controlid.jpg" width="500px">
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Add css classes to the control</h2>
+						<p>addClass</p>
+						<p>writeClasses</p>
+						
+						```
+						<div class="sw-intro">
+						</div>
+						```
+						
+						```
+							renderer: function(oRm, oControl) {
+								oRm.write("<div");
+						        oRm.writeControlData(oControl);
+								oRm.addClass("sw-intro");
+								oRm.writeClasses();
+						        oRm.write(">");
+						        oRm.write("</div>");
+							}
+						```
+						
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Add Paragraph to div</h2>
+						
+						```
+							<div class="sw-intro">
+							    <p class="intro-text">
+							      Some text
+							    </p>
+							</div>
+						```
+						
+						```
+							oRm.write("<div");
+							oRm.writeControlData(oControl);
+							oRm.addClass("sw-intro");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.write("<p");
+							oRm.addClass("intro-text");
+							oRm.writeClasses();
+							oRm.write(">");
+							// property intro
+							oRm.write("</p>");
+							oRm.write("</div>");
+						```
+						
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Use properties</h2>
+						<p>writeEscaped</p>
+						
+						```
+							oRm.write("<div");
+							oRm.writeControlData(oControl);
+							oRm.addClass("sw-intro");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.write("<p");
+							oRm.addClass("intro-text");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.writeEscaped(oControl.getIntro());
+							oRm.write("</p>");
+							oRm.write("</div>");
+						```
+						
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Use image</h2>
+						<p>include h2 into div</p>
+						<p>writeAttributeEscaped for image src</p>
+						
+						```
+						  <div class="sw-intro">
+						    <p class="intro-text">
+						      Some text
+						    </p>
+						    <h2 class="main-logo">
+						      <img src="images/logo.png">
+						    </h2>
+						  </div>
+						```
+						
+						```
+							oRm.write("<h2");
+							oRm.addClass("main-logo");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.write("<img");
+							oRm.writeAttributeEscaped("src", oControl.getLogo());
+							oRm.write(">");
+							oRm.write("</img>");
+							oRm.write("</h2>");
+						```
+						
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Same for title and content</h2>
+						
+						```
+							<div class="main-content">
+								<div class="title-content">
+									<p class="content-header">Title</p>
+									<br>
+									<p class="content-body">
+										Content
+									</p>
+								</div>
+							</div>
+						```
+						
+						```
+							oRm.write("<div");
+							oRm.addClass("main-content");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.write("<div");
+							oRm.addClass("title-content");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.write("<p");
+							oRm.addClass("content-header");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.writeEscaped(oControl.getTitle());
+							oRm.write("</p>");
+							oRm.write("<p");
+							oRm.addClass("content-body");
+							oRm.writeClasses();
+							oRm.write(">");
+							oRm.writeEscaped(oControl.getText());
+							oRm.write("</p>");
+							oRm.write("</div>");
+							oRm.write("</div>");
+						```
+						</script>
+					</section>
+					<section>
+						<h2>write renderer function</h2>
+						<ul>
+							<li>write</li>
+							<li>writeControlData</li>
+							<li>writeClasses</li>
+							<li>writeStyles</li> 
+							<li>writeAttribute</li>
+							<li>writeAttributeEscaped</li>
+							<li>writeAcceleratorKey</li>
+							<li>writeAccessibilityState</li>
+							<li>writeElementData</li>
+							<li>writeEscaped</li>
+							<li>writeIcon</li>
+							<li>writeInvisiblePlaceholderData</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Use control in XML view</h2>
+						<p>Namespace = de.wdf</p>
+						<p>Folder = Control</p>
+						
+						<img data-src="images/conptrol.jpg">
+						
+						```
+						<mvc:View controllerName="de.wdf.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+						xmlns="sap.m" xmlns:cust="de.wdf.Control">
+						```
+						
+						```
+						<cust:CustomControlDemo 
+							logo="images/logo.png" 
+							intro="SAP Inside Track Walldorf"
+							title="UI5 Custom Controls"
+							text="Everything you need to know about UI5 Custom Controls!">
+						</cust:CustomControlDemo>
+						```
+						
+						</script>
+					</section>
+					<section>
+						<h2>CSS</h2>
+						<p>library https://github.com/SAP/openui5/blob/master/docs/controllibraries.md</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Conclusion</h2>
+						<p>Same steps for each new control</p>
+					</section>
+					<section>
+						<h2>Extend from Control</h2>
+						<img src="images/extend.PNG" width="800px"/>
+					</section>
+					<section>
+						<h2>Always same structure</h2>
+						<img src="images/outline.PNG" width="500px"/>
+					</section>
+					<section>
+						<h2>Properties ==> dynamic values</h2>
+						<img src="images/html.png"/>
+					</section>
+					<section>
+						<h2>Setters for smoother rendering</h2>
+						<img src="images/setters.PNG" width="800px"/>
+					</section>
+					<section>
+						<h2>renderer function => write html using JS functions</h2>
+						<ul>
+							<li>write DOM elements</li>
+							<li>write classes</li>
+							<li>write styles</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section>
+						<h2>No matter what, you'll always start from an HTML example</h2>
+						<p>Time consuming</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Solution</h2>
+						<p>HTML to UI5 Control convertor</p>
+						<p>"UI5 control generator"</p>
+						<p>SAPWebIDE Plugin</p>
+					</section>
+					<section>
+						<h2>Only three steps</h2>
+						<ul>
+							<li>Create file</li>
+							<li>Paste HTML -> convert</li>
+							<li>Change control name + namespace</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Demo</h2>
+						
+						```
+							<div class="sw-intro">
+								<p class="intro-text">
+									SAP Inside Track Walldorf
+								</p>
+								<h2 class="main-logo">
+									<img src="images/logo.png">
+								</h2>
+								<div class="main-content">
+									<div class="title-content">
+										<p class="content-header">UI5 Custom Controls</p>
+										<br>
+										<p class="content-body">
+											Everything you need to know about UI5 Custom Controls!
+										</p>
+									</div>
+								</div>
+							</div>
+						```
+						</script>
+					</section>
+						<section>
+							<h2>How to get it</h2>
+							<p>Productive available</p>
+							<p>On Github: <a href="https://github.com/lemaiwo/CustomControlGenerator">Custom Control Generator</a></p>
+						</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h2>Create destination</h2>
+						
+						```
+							Description=My Feature
+							Type=HTTP
+							Authentication=NoAuthentication
+							WebIDEUsage=feature
+							Name=FeatureUI5ControlGenerator
+							WebIDEEnabled=true
+							CloudConnectorVersion=2
+							URL=https\://htmltocontrolconverter-p935700trial.dispatcher.hanatrial.ondemand.com
+							ProxyType=Internet
+						```
+						</script>
+					</section>
+						<section>
+							<h2>Activate in the SAP Web IDE</h2>
+							<p><img src="images/settings.png"/></p>
+						</section>
+					<section>
+						<h2>SAPStore</h2>
+						<p>SAP Labs Israïl</p>
+						<p>Coming soon</p>
+					</section>
+					<section>
+						<h2>How it works</h2>
+						<p>https://blogs.sap.com/2016/11/27/custom-ui5-control-generator-sap-web-ide-plugin/</p>
+					</section>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>#SITBRU</h1>
+					<p>Brussels - 3 June 2017</p>
+					<img src="images/sitbru.jpg"/>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber:'c/t',
+				transition: 'convex',//'slide', // none/fade/slide/convex/concave/zoom
+				parallaxBackgroundImage:'images/sw3.jpg',
+				// parallaxBackgroundSize:'1900px',
+				// viewDistance: 10,
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
